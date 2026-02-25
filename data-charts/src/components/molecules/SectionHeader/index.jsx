@@ -1,5 +1,5 @@
-import Header from "../atoms/Header";
-import Text from "../atoms/Text";
+import Header from "../../atoms/Header";
+import Text from "../../atoms/Text";
 
 export default function SectionHeader({ title, subtitle }) {
   return (
