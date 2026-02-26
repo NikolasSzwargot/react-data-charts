@@ -1,3 +1,56 @@
+# Prerequisites
+
+Before running the pproject makke sure you have installed:
+
+- [Node.js](https://nodejs.org/en/download)
+- Yarn
+
+After installing Node.js install Yarn:
+
+```bash
+npm install --global yarn
+```
+
+# Project setup
+
+## Install dependencies
+
+To install dependencies go to `data-charts` directory
+
+```bash
+cd data-charts
+```
+
+Once in `data-charts` directory run:
+
+```bash
+yarn install
+```
+
+# Running the app
+
+To run the app after installing dependencies, in `data-charts` directory run:
+
+```bash
+yarn dev
+```
+
+Now the project should run on `http://localhost:5173/`
+
+# About the project
+
+## About tech
+
+The project uses React framework with Tailwindcss, to make styling the components easier and Highcharts for displaying charts.
+
+## About app
+
+The web application shows dashboard with three charts, representing data from given `data.json`.
+
+### First chart - revenue by day
+The first chart 
+
+#################################
 # Zadanie rekrutacyjne — Data Visualization (Frontend)
 
 ## Kontekst

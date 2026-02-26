@@ -1,11 +1,11 @@
-import Box from "../../atoms/Box";
-import SectionHeader from "../../molecules/SectionHeader";
+import Box from '../../atoms/Box'
+import SectionHeader from '../../molecules/SectionHeader'
 
 export default function ChartBoard({
   title,
   subtitle,
-  className = "",
-  height = "h-[380px]",
+  className = '',
+  height = 'h-[380px]',
   children,
 }) {
   return (
@@ -17,5 +17,5 @@ export default function ChartBoard({
         )}
       </div>
     </Box>
-  );
+  )
 }

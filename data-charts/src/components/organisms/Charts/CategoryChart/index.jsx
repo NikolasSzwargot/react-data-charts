@@ -1,18 +1,18 @@
-import { useMemo } from "react";
-import { Chart } from "@highcharts/react";
-import useOrdersByCategoryChartData from "../../../../hooks/useOrdersByCategory";
+import { useMemo } from 'react'
+import { Chart } from '@highcharts/react'
+import useOrdersByCategoryChartData from '../../../../hooks/useOrdersByCategory'
 
 export default function CategoryChart({ orders }) {
-  const { categories, data } = useOrdersByCategoryChartData(orders);
+  const { categories, data } = useOrdersByCategoryChartData(orders)
 
   const options = useMemo(
     () => ({
       chart: {
-        type: "column",
-        backgroundColor: "transparent",
+        type: 'column',
+        backgroundColor: 'transparent',
         spacing: [8, 8, 8, 8],
         style: {
-          fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif",
+          fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
         },
       },
       title: {
@@ -26,12 +26,12 @@ export default function CategoryChart({ orders }) {
       },
       xAxis: {
         categories,
-        lineColor: "#334155",
+        lineColor: '#334155',
         tickLength: 0,
         labels: {
           style: {
-            color: "#94a3b8",
-            fontSize: "12px",
+            color: '#94a3b8',
+            fontSize: '12px',
           },
         },
       },
@@ -41,19 +41,19 @@ export default function CategoryChart({ orders }) {
         title: {
           text: null,
         },
-        gridLineColor: "#1e293b",
+        gridLineColor: '#1e293b',
         labels: {
           style: {
-            color: "#94a3b8",
-            fontSize: "12px",
+            color: '#94a3b8',
+            fontSize: '12px',
           },
         },
       },
       tooltip: {
-        backgroundColor: "rgba(15, 23, 42, 0.96)",
-        borderColor: "#334155",
+        backgroundColor: 'rgba(15, 23, 42, 0.96)',
+        borderColor: '#334155',
         style: {
-          color: "#e2e8f0",
+          color: '#e2e8f0',
         },
         pointFormat:
           '<span style="color:{point.color}">\u25CF</span> Orders: <b>{point.y}</b>',
@@ -71,20 +71,20 @@ export default function CategoryChart({ orders }) {
       },
       series: [
         {
-          type: "column",
-          name: "Orders",
+          type: 'column',
+          name: 'Orders',
           data,
-          color: "#60a5fa",
+          color: '#60a5fa',
         },
       ],
     }),
-    [categories, data],
-  );
+    [categories, data]
+  )
 
   return (
     <Chart
       options={options}
-      containerProps={{ style: { width: "100%", height: "100%" } }}
+      containerProps={{ style: { width: '100%', height: '100%' } }}
     />
-  );
+  )
 }
