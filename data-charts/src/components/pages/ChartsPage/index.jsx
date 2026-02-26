@@ -26,7 +26,7 @@ export default function ChartsPage() {
 
       <section className="mt-6 grid grid-cols-12 gap-6">
         <ChartBoard
-          className="col-span-7"
+          className="col-span-8"
           title="Orders by category"
           height="h-[320px]"
         >
@@ -34,7 +34,7 @@ export default function ChartsPage() {
         </ChartBoard>
 
         <ChartBoard
-          className="col-span-5"
+          className="col-span-4"
           title="Orders by country"
           height="h-[320px]"
         >
