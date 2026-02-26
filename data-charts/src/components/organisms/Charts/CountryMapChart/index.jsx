@@ -1,39 +1,11 @@
-import euMap from '@highcharts/map-collection/custom/european-union.topo.json'
+import europeMap from '@highcharts/map-collection/custom/europe.topo.json'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { MapsChart } from '@highcharts/react/Maps'
 import useOrdersByCountry from '../../../../hooks/useOrdersByCountry'
 
 export default function CountryMapChart({ orders }) {
   const data = useOrdersByCountry(orders)
-  const [mapData, setMapData] = useState(null)
-
-  useEffect(() => {
-    let active = true
-
-    fetch('https://code.highcharts.com/mapdata/custom/europe.topo.json')
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to load map data')
-        }
-
-        return response.json()
-      })
-      .then((topology) => {
-        if (active) {
-          setMapData(topology)
-        }
-      })
-      .catch(() => {
-        if (active) {
-          setMapData(null)
-        }
-      })
-
-    return () => {
-      active = false
-    }
-  }, [])
 
   const options = useMemo(
     () => ({
@@ -87,28 +59,18 @@ export default function CountryMapChart({ orders }) {
           },
         },
       },
-      series: mapData
-        ? [
-            {
-              type: 'map',
-              name: 'Orders',
-              mapData: euMap,
-              data,
-              joinBy: ['iso-a2', 'code'],
-            },
-          ]
-        : [],
+      series: [
+        {
+          type: 'map',
+          name: 'Orders',
+          mapData: europeMap,
+          data,
+          joinBy: ['iso-a2', 'code'],
+        },
+      ],
     }),
-    [data, mapData]
+    [data]
   )
-
-  if (!mapData) {
-    return (
-      <div className="flex h-full items-center justify-center rounded-2xl border border-dashed border-slate-700 text-sm text-slate-400">
-        Loading map…
-      </div>
-    )
-  }
 
   return (
     <MapsChart
